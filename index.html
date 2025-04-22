@@ -4,11 +4,7 @@
     <title>DOM Project</title>
   </head>
   <body>
-    <style>
-      div {
-        margin-top: 40px;
-      }
-    </style>
+
     <div class="YT-Subscribe">
       <h4>Youtube Subscribe Button</h4>
       <button class="js-subscribe" onclick="
@@ -26,7 +22,7 @@
     <h4>Amazon Shipping Calculator</h4>
     <p>Orders under $40 = +$10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
-    <input placeholder="Cost of order"></input>
+    <input id="input", placeholder="Cost of order"></input>
     <button onclick="
                      calculate()
                      ">
@@ -41,10 +37,21 @@
        document.querySelector(".js-subscribe").innerHTML = "Subscribed"
       };
       
-      function calculate() {
+      function calculate() {        
+        let orderCost = parseInt(document.querySelector("#input").value);
+        
+        let answer = 0;
+        if(orderCost < 40){
+          answer = orderCost + 10          
+        }
+        else {
+          answer = orderCost
+        }
+        
+        document.querySelector(".js-calc-answer").innerHTML = answer
+                
         
         
-        document.querySelector(".js-calc-answer").innerHTML = "" 
       };
       
     </script>
