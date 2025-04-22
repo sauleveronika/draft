@@ -1,15 +1,52 @@
 <DOCTYPE! htnml>
 <html>
   <head>
-    
+    <title>DOM Project</title>
   </head>
   <body>
-
-    <button>Test me!</button>
+    <style>
+      div {
+        margin-top: 40px;
+      }
+    </style>
+    <div class="YT-Subscribe">
+      <h4>Youtube Subscribe Button</h4>
+      <button class="js-subscribe" onclick="
+                       subscribe()
+                       ">
+        Subscribe</button>
+    </div>
+  
+  <div class="r-p-s">
+    <h4>Rock Paper Scissors<h4>
+    <a href="">Click here</a>
+  </div>
+  
+  <div class="amaz-calc">
+    <h4>Amazon Shipping Calculator</h4>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input placeholder="Cost of order"></input>
+    <button onclick="
+                     calculate()
+                     ">
+      Calculate</button>
+    <p class="js-calc-answer"><p>
+  
+  </div>
+    
 
     <script>
-      console.log(document.querySelector("button"))
-      document.querySelector("button").innerHTML = "Changed";
+      function subscribe() {
+       document.querySelector(".js-subscribe").innerHTML = "Subscribed"
+      };
+      
+      function calculate() {
+        
+        
+        document.querySelector(".js-calc-answer").innerHTML = "" 
+      };
+      
     </script>
     
   </body>
