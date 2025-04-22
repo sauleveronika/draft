@@ -3,6 +3,9 @@
   <head>
     <title>DOM Project</title>
   </head>
+
+
+  
   <body>
 
     <div class="YT-Subscribe">
@@ -34,7 +37,16 @@
 
     <script>
       function subscribe() {
-       document.querySelector(".js-subscribe").innerHTML = "Subscribed"
+        let buttonValue = document.querySelector(".js-subscribe");
+        
+        
+        if(buttonValue.innerHTML == "Subscribe" ){
+          buttonValue.innerHTML = "Subscribed";     
+        }
+        else {
+          buttonValue.innerHTML = "Subscribe";
+        }
+       
       };
       
       function calculate() {        
@@ -48,7 +60,7 @@
           answer = orderCost
         }
         
-        document.querySelector(".js-calc-answer").innerHTML = answer
+        document.querySelector(".js-calc-answer").innerHTML = "$"+answer
                 
         
         
