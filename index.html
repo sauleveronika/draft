@@ -21,14 +21,18 @@
   
   <div class="r-p-s">
     <h4>Rock Paper Scissors<h4>
-    <a href="https://sauleveronika.github.io/rockpaperscissors/">Click here</a> <!-- 5-RckPprScr_bool.html  -->
+    <a href="5-RckPprScr_bool-and-ifs.html">Click here</a> <!-- 5-RckPprScr_bool.html  -->
   </div>
   
   <div class="amaz-calc">
     <h4>Amazon Shipping Calculator</h4>
     <p>Orders under $40 = +$10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
-    <input id="input", placeholder="Cost of order">
+    <input id="input", placeholder="Cost of order" onkeydown="
+    if (event.code == 'Enter') {
+        calculate()
+    }
+    ">
     <button onclick="
                      calculate()
                      ">
@@ -56,15 +60,13 @@
       function calculate() {        
         let orderCost = parseInt(document.querySelector("#input").value);
         
-        let answer = 0;
+
         if(orderCost < 40){
-          answer = orderCost + 10          
+            orderCost = orderCost + 10          
         }
-        else {
-          answer = orderCost
-        }
+
         
-        document.querySelector(".js-calc-answer").innerHTML = "$"+answer
+        document.querySelector(".js-calc-answer").innerHTML = "$"+orderCost
                 
         
         
