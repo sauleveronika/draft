@@ -7,18 +7,21 @@
 
   
   <body>
+    <style>
+        body {
+            font-size: 1.25em;
+            padding: 2%;
+        }
+    </style>
 
     <div class="YT-Subscribe">
       <h4>Youtube Subscribe Button</h4>
-      <button class="js-subscribe" onclick="
-                       subscribe()
-                       ">
-        Subscribe</button>
+      <button class="js-subscribe" onclick="subscribe()">Subscribe</button>
     </div>
   
   <div class="r-p-s">
     <h4>Rock Paper Scissors<h4>
-    <a href="https://sauleveronika.github.io/rockpaperscissors/">Click here</a>
+    <a href="5-RckPprScr_bool-and-ifs.html">Click here</a> <!-- 5-RckPprScr_bool.html  -->
   </div>
   
   <div class="amaz-calc">
@@ -37,18 +40,18 @@
 
     <script>
 
-      let buttonValue = document.querySelector(".js-subscribe");
       
-      function subscribe() {     
-        
+      
+      function subscribe() {      
+        let buttonValue = document.querySelector(".js-subscribe");
+
         if(buttonValue.innerHTML == "Subscribe" ){
           buttonValue.innerHTML = "Subscribed";     
         }
         else {
           buttonValue.innerHTML = "Subscribe";
         }
-       
-      };
+       };
       
       function calculate() {        
         let orderCost = parseInt(document.querySelector("#input").value);
