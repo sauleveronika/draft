@@ -3,9 +3,6 @@
   <head>
     <title>DOM Project</title>
   </head>
-
-
-  
   <body>
     <style>
         body {
@@ -28,25 +25,16 @@
     <h4>Amazon Shipping Calculator</h4>
     <p>Orders under $40 = +$10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
-    <input id="input", placeholder="Cost of order" onkeydown="
-    if (event.code == 'Enter') {
-        calculate()
-    }
-    ">
+    <input id="input", placeholder="Cost of order" onkeydown="keydownHandler(event)">
     <button onclick="
                      calculate()
                      ">
       Calculate</button>
-    <p class="js-calc-answer"><p>
-  
+    <p class="js-calc-answer"></p>
   </div>
-    
-
-    <script>
-
-      
-      
-      function subscribe() {      
+  
+    <script>    
+    function subscribe() {      
         let buttonValue = document.querySelector(".js-subscribe");
 
         if(buttonValue.innerHTML == "Subscribe" ){
@@ -60,18 +48,18 @@
       function calculate() {        
         let orderCost = parseInt(document.querySelector("#input").value);
         
-
         if(orderCost < 40){
             orderCost = orderCost + 10          
-        }
+        };
 
-        
-        document.querySelector(".js-calc-answer").innerHTML = "$"+orderCost
-                
-        
-        
+        document.querySelector(".js-calc-answer").innerHTML = "$"+orderCost;
       };
-      
+
+      function keydownHandler(eventValue){
+        if (eventValue.code == 'Enter') {
+            calculate()
+        };
+      }
     </script>
     
   </body>
