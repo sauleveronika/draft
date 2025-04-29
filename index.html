@@ -32,8 +32,17 @@
       Calculate</button>
     <p class="js-calc-answer"></p>
   </div>
+
+  <div>
+     <p>
+      <h5>9h</h5>
+      <input onkeyup="keyupfunction(event)">
+      <p class="js-empty-space"></p>
+    </p>
+  </div>
   
-    <script>    
+    <script> 
+      
     function subscribe() {      
         let buttonValue = document.querySelector(".js-subscribe");
 
@@ -44,6 +53,9 @@
           buttonValue.innerHTML = "Subscribe";
         }
        };
+
+
+      /* ---------- h ---------- */
       
       function calculate() {        
         let orderCost = parseInt(document.querySelector("#input").value);
@@ -55,11 +67,23 @@
         document.querySelector(".js-calc-answer").innerHTML = "$"+orderCost;
       };
 
+       /* ---------- h ---------- */
+      
       function keydownHandler(eventValue){
         if (eventValue.code == 'Enter') {
             calculate()
         };
       }
+
+       let emptyspace = document.querySelector(".js-empty-space")
+
+      /* ---- 9h ------ */
+    function keyupfunction(event) {     
+      
+      emptyspace.innerHTML = event.code
+      console.log(event.code)
+    }
+    
     </script>
     
   </body>
