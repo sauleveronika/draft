@@ -75,13 +75,13 @@
         };
       }
 
-       let emptyspace = document.querySelector(".js-empty-space")
-
       /* ---- 9h ------ */
+        let emptyspace = document.querySelector(".js-empty-space")
+    
     function keyupfunction(event) {     
-      
-      emptyspace.innerHTML = event.code
-      console.log(event.code)
+      if(event.key !== "Backspace") {
+         emptyspace.innerHTML += event.key
+      }
     }
     
     </script>
