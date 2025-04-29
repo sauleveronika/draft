@@ -1,91 +1,125 @@
-<DOCTYPE! htnml>
+<doctype! html>
 <html>
-  <head>
-    <title>DOM Project</title>
-  </head>
-  <body>
-    <style>
-        body {
-            font-size: 1.25em;
-            padding: 2%;
-        }
-    </style>
+    <head>
+    </head>
+    <body>
+        <p>
+            <h5>9a, 9b</h5>
+            <button class="js-btn1">9a</button>
+            <button class="js-btn2">9b</button>
+        </p>
 
-    <div class="YT-Subscribe">
-      <h4>Youtube Subscribe Button</h4>
-      <button class="js-subscribe" onclick="subscribe()">Subscribe</button>
-    </div>
-  
-  <div class="r-p-s">
-    <h4>Rock Paper Scissors<h4>
-    <a href="5-RckPprScr_bool-and-ifs.html">Click here</a> <!-- 5-RckPprScr_bool.html  -->
-  </div>
-  
-  <div class="amaz-calc">
-    <h4>Amazon Shipping Calculator</h4>
-    <p>Orders under $40 = +$10 shipping.</p>
-    <p>Orders over $40 = FREE shipping.</p>
-    <input id="input", placeholder="Cost of order" onkeydown="keydownHandler(event)">
-    <button onclick="
-                     calculate()
-                     ">
-      Calculate</button>
-    <p class="js-calc-answer"></p>
-  </div>
+        <p>
+            <h5>9c</h5>
+            <button class = "js-heads" onclick = "yourChoice('heads')">heads</button>
+            <button class = "js-tails" onclick = "yourChoice('tails')">tails</button>
+            <p class = "message"></p>
+        </p>
 
-  <div>
-     <p>
-       <h5>9h</h5>
-       <input onkeydown="keydownHandler(event)">
-       <p class = "js-keydown-message"></p>
-    </p>
-  </div>
-  
-    <script> 
-      
-    function subscribe() {      
-        let buttonValue = document.querySelector(".js-subscribe");
+        <p>
+            <h5>9d</h5>
+            <input placeholder="Name" class="input">
+            <button onclick = "displayName()">Submit</button>
+            <p class = "js-nameMessage"></p>
 
-        if(buttonValue.innerHTML == "Subscribe" ){
-          buttonValue.innerHTML = "Subscribed";     
-        }
-        else {
-          buttonValue.innerHTML = "Subscribe";
-        }
-       };
+        </p>
+
+        <p>
+            <h5>9e</h5>
+            <input placeholder = "Name" class = "js-input" onkeydown="keydownHandler(event)">
+            <button onclick = "displayMessage()">Submit</button>
+            <p class = "js-input-message"></p>
+        </p>
+
+        <p>
+            <h5>9h</h5>
+            <input onkeydown="keydownHandler(event)">
+            <p class = "js-keydown-message"></p>
+        </p>
+
+        <p>
+            <h5>9j</h5>
+            <button onclick = "addToCart('1'); showQnt()">Add to Cart</button>
+            <button onclick = "addToCart('2'); showQnt()">+2</button>
+            <button onclick = "addToCart('3'); showQnt()">+3</button>
+            <button onclick = "addToCart('4'); showQnt()">+4</button>
+            <button onclick = "addToCart('5'); showQnt()">+5</button>
+            <button onclick = "addToCart('-1'); showQnt()">Remove from Cart</button>
+            <button onclick = "addToCart('-2'); showQnt()"> -2</button>
+            <button onclick = "addToCart('-3'); showQnt()">-3</button>
+            
+            <p class = "js-cart-message"></p>
+            <button onclick = "emptyCart(); showQnt()">| Empty Cart |</button>
+        </p>
 
 
-      /* ---------- h ---------- */
-      
-      function calculate() {        
-        let orderCost = parseInt(document.querySelector("#input").value);
-        
-        if(orderCost < 40){
-            orderCost = orderCost + 10          
-        };
 
-        document.querySelector(".js-calc-answer").innerHTML = "$"+orderCost;
-      };
+        <script>
+            // ------------ 9a, b ------------ 
+          
+            let btn1 = document.querySelector(".js-btn1").innerHTML;
+            let btn2Inner= document.querySelector(".js-btn2").innerHTML;
 
-       /* ---------- h ---------- */
-      
-      function keydownHandler(eventValue){
-        if (eventValue.code == 'Enter') {
-            calculate()
-        };
-      }
+            btn2Inner = "9b done!";
+            //console.log(btn1, btn2Inner)
 
-      /*------------ 9h -------------- */
-      function keydownHandler(event) {
-        if(event.key != "Backspace") {
-          document.querySelector(".js-keydown-message").innerHTML += event.key
-        }
-        else {
-          document.querySelector(".js-keydown-message").innerHTML = document.querySelector(".js-keydown-message").innerHTML.slice(0,-1)
-        }
-      }
-    
-    </script>
-    
-  </body>
+            // ------------ 9c  ------------ 
+          
+            let messagePar = document.querySelector(".message");
+
+            function yourChoice(value) {
+                    messagePar.innerHTML = `You chose: ${value}`
+            }
+            
+            // ------------  9d  ------------
+          
+            function displayName () {
+                document.querySelector(".js-nameMessage").innerHTML = `Your name is: ${document.querySelector('.input').value}`
+            }
+
+            // ------------ 9e --------------
+
+            function displayMessage() {
+                document.querySelector(".js-input-message").innerHTML = `Your name is: ${document.querySelector(".js-input").value}!`
+            }
+
+            function keydownHandler(eventObj) {
+                if(eventObj.code == "Enter") {
+                    displayMessage()
+                }
+            }
+
+            // ------------ 9h --------------
+          
+            function keydownHandler(event) {
+                if(event.key != "Backspace") {
+                    document.querySelector(".js-keydown-message").innerHTML += event.key
+                }
+                else (
+                    document.querySelector(".js-keydown-message").innerHTML = document.querySelector(".js-keydown-message").innerHTML.slice(0,-1)
+                )
+            }
+          
+            // ------------ 9j --------------
+          
+            let cart = parseInt(localStorage.getItem("cart") || 0);
+
+            showQnt();
+
+            function showQnt() {
+                document.querySelector(".js-cart-message").innerHTML = `Cart quantity: ${cart}`
+            }
+
+            function addToCart(value) {
+                cart += parseInt(value);
+                localStorage.setItem("cart", cart);
+            }
+
+            function emptyCart() {
+                cart = 0
+            }
+
+        </script>
+
+    </body>
 </html>
