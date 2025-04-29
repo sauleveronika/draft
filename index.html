@@ -35,9 +35,9 @@
 
   <div>
      <p>
-      <h5>9h</h5>
-      <input onkeyup="keyupfunction(event)">
-      <p class="js-empty-space"></p>
+       <h5>9h</h5>
+       <input onkeydown="keydownHandler(event)">
+       <p class = "js-keydown-message"></p>
     </p>
   </div>
   
@@ -75,14 +75,15 @@
         };
       }
 
-      /* ---- 9h ------ */
-        let emptyspace = document.querySelector(".js-empty-space")
-    
-    function keyupfunction(event) {     
-      if(event.key !== "Backspace") {
-         emptyspace.innerHTML += event.key
+      /*------------ 9h -------------- */
+      function keydownHandler(event) {
+        if(event.key != "Backspace") {
+          document.querySelector(".js-keydown-message").innerHTML += event.key
+        }
+        else {
+          document.querySelector(".js-keydown-message").innerHTML = document.querySelector(".js-keydown-message").innerHTML.slice(0,-1)
+        }
       }
-    }
     
     </script>
     
